@@ -9,8 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        darknavy: "#1A1A2E",
+        irishred: "#C0392B",
+        slate: "#2C3E50",
+        offwhite: "#F5F5F0",
+        gold: "#D4A017",
+        muted: "#6B7280",
+      },
+      fontFamily: {
+        montserrat: ["var(--font-montserrat)", "sans-serif"],
+        poppins: ["var(--font-poppins)", "sans-serif"],
       },
     },
   },
