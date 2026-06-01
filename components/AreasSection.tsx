@@ -5,44 +5,63 @@ import { towns } from "@/lib/areas";
 
 export default function AreasSection() {
   return (
-    <section id="areas" className="py-20 md:py-28 bg-darknavy">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="inline-block bg-white/10 text-white font-poppins font-600 text-sm px-4 py-1 rounded-full mb-4">
-            Coverage
-          </span>
-          <h2 className="font-montserrat font-800 text-3xl md:text-4xl text-white mb-5">
-            Areas We Cover
-          </h2>
-          <p className="font-poppins text-white/60 text-base max-w-xl mx-auto mb-10">
-            We cover all areas of County Carlow and beyond — including Kilkenny and Wicklow.
-          </p>
+    <section id="areas" className="py-24 md:py-32 bg-ink">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+
+          {/* Left */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <p className="font-poppins text-xs tracking-widest uppercase text-irishred mb-5">
+              Coverage
+            </p>
+            <h2 className="font-montserrat font-800 text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-5">
+              Areas We
+              <br />Cover
+            </h2>
+            <span className="divider mb-8 block" />
+            <p className="font-poppins text-[15px] text-white/45 leading-relaxed max-w-sm mb-8">
+              Based in Carlow, we serve all of Co. Carlow and extend into Kilkenny, Wicklow and
+              surrounding areas.
+            </p>
+            <p className="font-poppins text-sm text-white/30">
+              Not sure if we cover your area?{" "}
+              <a href="tel:0852173108" className="text-irishred hover:underline">
+                Give us a call.
+              </a>
+            </p>
+          </motion.div>
+
+          {/* Right — town grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="grid grid-cols-2 gap-px bg-white/10"
+          >
             {towns.map((town) => (
               <Link
                 key={town.slug}
                 href={`/areas/${town.slug}`}
-                className="bg-irishred text-white font-poppins font-500 text-sm px-5 py-2 rounded-full hover:scale-105 hover:bg-red-700 transition-all duration-200"
+                className="group bg-ink px-6 py-5 flex items-center justify-between hover:bg-irishred transition-colors duration-300"
               >
-                {town.name}
+                <span className="font-poppins text-sm text-white/60 group-hover:text-white transition-colors duration-300">
+                  {town.name}
+                </span>
+                <span className="text-white/20 group-hover:text-white/60 text-xs transition-colors duration-300">
+                  →
+                </span>
               </Link>
             ))}
-          </div>
+          </motion.div>
 
-          <p className="font-poppins text-white/50 text-sm">
-            Not sure if we cover your area?{" "}
-            <a href="tel:0852173108" className="text-irishred hover:text-red-400 transition-colors">
-              Give us a call
-            </a>{" "}
-            — we&apos;re happy to help.
-          </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

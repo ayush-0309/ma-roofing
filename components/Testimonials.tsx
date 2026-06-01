@@ -3,63 +3,62 @@ import { motion } from "framer-motion";
 import { testimonials } from "@/lib/testimonials";
 import { ExternalLink } from "lucide-react";
 
-const Stars = () => (
-  <div className="flex gap-1 mb-3">
-    {[...Array(5)].map((_, i) => (
-      <span key={i} className="text-gold text-lg">★</span>
-    ))}
-  </div>
-);
-
 const container = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
+  visible: { transition: { staggerChildren: 0.12 } },
 };
 
 const card = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  hidden:  { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 export default function Testimonials() {
   return (
-    <section className="py-20 md:py-28 bg-offwhite">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-14">
-          <span className="inline-block bg-irishred/10 text-irishred font-poppins font-600 text-sm px-4 py-1 rounded-full mb-4">
+    <section className="py-24 md:py-32 bg-offwhite">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+
+        {/* Header */}
+        <div className="max-w-xl mb-16">
+          <p className="font-poppins text-xs tracking-widest uppercase text-irishred mb-4">
             Reviews
-          </span>
-          <h2 className="font-montserrat font-800 text-3xl md:text-4xl text-darknavy">
-            What Our Clients Are Saying
-          </h2>
-          <p className="font-poppins text-muted mt-3 text-base max-w-xl mx-auto">
-            Don&apos;t take our word for it — here&apos;s what our customers across Carlow say.
           </p>
+          <h2 className="font-montserrat font-800 text-3xl md:text-4xl lg:text-5xl text-ink leading-tight">
+            What Our
+            <br />Clients Say
+          </h2>
+          <span className="divider mt-6 block" />
         </div>
 
+        {/* Cards */}
         <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
+          variants={container} initial="hidden"
+          whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-px bg-stone"
         >
           {testimonials.map((t) => (
             <motion.div
               key={t.name}
               variants={card}
-              className="bg-white rounded-2xl shadow-md p-6 flex flex-col"
+              className="bg-white p-8 lg:p-10 flex flex-col"
             >
-              <Stars />
-              <p className="font-poppins text-gray-600 text-sm leading-relaxed flex-1 mb-4 italic">
+              {/* Stars */}
+              <div className="flex gap-0.5 mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-gold text-sm">★</span>
+                ))}
+              </div>
+
+              <p className="font-poppins text-[15px] text-ink/70 leading-relaxed flex-1 mb-8">
                 &ldquo;{t.text}&rdquo;
               </p>
-              <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                <div className="w-10 h-10 rounded-full bg-irishred/10 flex items-center justify-center font-montserrat font-700 text-irishred text-base">
+
+              <div className="flex items-center gap-3 pt-6 border-t border-stone">
+                <div className="w-9 h-9 rounded-full bg-irishred/10 flex items-center justify-center font-montserrat font-700 text-irishred text-sm flex-shrink-0">
                   {t.name[0]}
                 </div>
                 <div>
-                  <p className="font-poppins font-600 text-darknavy text-sm">{t.name}</p>
+                  <p className="font-poppins font-600 text-ink text-sm">{t.name}</p>
                   <p className="font-poppins text-muted text-xs">{t.town}</p>
                 </div>
               </div>
@@ -67,22 +66,20 @@ export default function Testimonials() {
           ))}
         </motion.div>
 
-        <div className="flex flex-col items-center gap-4">
-          {/* Google badge */}
-          <div className="flex items-center gap-2 font-poppins text-muted text-sm">
-            <span className="text-2xl">G</span>
-            <span>Rated 5.0 on Google Reviews</span>
-          </div>
+        {/* Google link */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-10">
+          <p className="font-poppins text-sm text-muted">
+            Rated <span className="text-ink font-600">5.0</span> on Google Reviews
+          </p>
           <a
             href="https://g.page/r/review"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border-2 border-irishred text-irishred font-montserrat font-700 text-sm px-6 py-3 rounded-full hover:scale-105 hover:bg-irishred hover:text-white transition-all duration-200"
+            target="_blank" rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 font-poppins text-xs tracking-widest uppercase border border-ink/20 text-ink px-5 py-3 hover:border-irishred hover:text-irishred transition-colors duration-300"
           >
-            Write a Review on Google
-            <ExternalLink size={15} />
+            Write a Review <ExternalLink size={12} />
           </a>
         </div>
+
       </div>
     </section>
   );
