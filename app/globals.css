@@ -9,7 +9,8 @@
   body {
     font-family: var(--font-poppins), sans-serif;
     background: #ffffff;
-    color: #111827;
+    color: #111111;
+    -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-montserrat), sans-serif;
@@ -17,21 +18,26 @@
 }
 
 @layer utilities {
-  .font-montserrat {
-    font-family: var(--font-montserrat), sans-serif;
-  }
-  .font-poppins {
-    font-family: var(--font-poppins), sans-serif;
-  }
+  .font-montserrat { font-family: var(--font-montserrat), sans-serif; }
+  .font-poppins    { font-family: var(--font-poppins), sans-serif; }
 }
 
+/* Marquee */
 @keyframes marquee {
-  0% { transform: translateX(0); }
+  0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 .animate-marquee {
-  animation: marquee 30s linear infinite;
+  animation: marquee 35s linear infinite;
 }
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+/* Thin divider line */
+.divider {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #B91C1C;
 }

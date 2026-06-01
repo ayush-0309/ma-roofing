@@ -4,19 +4,18 @@ import { Phone } from "lucide-react";
 
 export default function MobileStickyBar() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden flex shadow-2xl">
+    <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden flex">
       <a
         href="tel:0852173108"
-        className="flex-1 bg-irishred text-white flex items-center justify-center gap-2 py-4 font-montserrat font-700 text-sm"
+        className="flex-1 bg-irishred text-white flex items-center justify-center gap-2 py-4 font-poppins font-600 text-xs tracking-widest uppercase"
       >
-        <Phone size={16} />
-        Call Now
+        <Phone size={14} /> Call Now
       </a>
       <Link
         href="/contact"
-        className="flex-1 bg-darknavy text-white flex items-center justify-center gap-2 py-4 font-montserrat font-700 text-sm border-l border-white/10"
+        className="flex-1 bg-ink text-white flex items-center justify-center gap-2 py-4 font-poppins font-600 text-xs tracking-widest uppercase border-l border-white/10"
       >
-        Get Quote
+        Free Quote
       </Link>
     </div>
   );
